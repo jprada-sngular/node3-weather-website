@@ -30,7 +30,7 @@ weatherForm.addEventListener('submit', (e) => {
 
     const locationSearch = searchElement.value
 
-    fetch(`weather?address=${encodeURIComponent(locationSearch)}`).then((response) => {
+    fetch(`/weather?address=${encodeURIComponent(locationSearch)}`).then((response) => {
         response.json().then(( { error, forecast, location} ) => {            
             searchElement.focus()
             
