@@ -16,8 +16,16 @@ const weather = (lat, lon, callback) => {
             return
         }
     
-        const msg = `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees out. It feels like ${body.current.feelslike} degrees out.`
-        callback(undefined, msg)
+        //const iconHtml = `<img src="${body.current.weather_icons[0]}" alt="${body.current.weather_descriptions[0]}">`
+        const msg = `
+            ${body.current.weather_descriptions[0]}.
+            It is currently ${body.current.temperature} degrees out.
+            It feels like ${body.current.feelslike} degrees out.
+            Precipitation chance: ${body.current.precip}.
+            Observation time was ${body.current.observation_time}
+        `
+
+        callback(undefined, msg.trim())
     })
 }
 
